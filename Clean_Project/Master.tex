@@ -1,0 +1,151 @@
+\input{secs/preambulo.tex}
+\begin{document} % Início do documento.
+
+%%%% Inicia documento com numeração alpha
+\pagenumbering{alph} 
+%\setcounter{page}{-4}
+%%%%%%%%%%%%%%%%
+%%% Página da capa do documento
+\input{titlepage}
+%=======================================================================
+% Numeração em romanos para paginas iniciais (capa, agradecimentos, etc)
+%=======================================================================
+\pagenumbering{roman} %% ou ROMAN para números romanos em maiúscula
+\setcounter{page}{1}
+
+%%%%%%%%%%%%%%%%% Cover
+\bookmark[page=1,level=0]{Capa}                  % Português
+
+%%%%%%%%%%%%%%%%% Table of Contents
+\cleardoublepage
+\phantomsection
+\bookmark[page=3,level=0]{Sumário}               % Português
+%\renewcommand\contentsname{Table of Contents}
+\tableofcontents
+%
+%%%%%%%%%%%%%%%%% List of Figures
+% \cleardoublepage
+% \phantomsection
+% %\addcontentsline{toc}{section}{List of Figures} % English
+% %\renewcommand\listfigurename{List of Figures}   % English
+% \addcontentsline{toc}{section}{Lista de Figuras} % Português
+% \renewcommand\listfigurename{Lista de Figuras}   % Português
+% \listoffigures
+% %
+% %%%%%%%%%%%%%%%%% List of Tables
+% \cleardoublepage
+% \phantomsection
+% %\addcontentsline{toc}{section}{List of Tables}  % English
+% %\renewcommand\listtablename{List of Tables}     % English
+% \addcontentsline{toc}{section}{Lista de Tabelas} % Português
+% \renewcommand\listtablename{Lista de Tabelas}    % Português
+% \listoftables
+%
+%%%%%%%%%%%%%%%% Lista de Quadros
+%\cleardoublepage
+%\phantomsection
+%\renewcommand{\listquadroname}{Lista de Quadros}
+%\addcontentsline{toc}{section}{Lista de Quadros} % Português
+%\listofquadros
+%
+%%%%%%%%%%%%%%%%% List of Codes
+% \cleardoublepage
+% \phantomsection
+% %\addcontentsline{toc}{section}{List of Codes}   % English
+% \addcontentsline{toc}{section}{Lista de Códigos}  % Português
+% \listadecodigos
+% %
+% %%%%%%%%%%%%%%%%% Nomenclature
+%\cleardoublepage
+%\phantomsection
+%\nomenclatura{1.7cm} \label{sec.nomecl}
+%
+%\bookmark[page=29,level=4]{Símbolos Gerais}
+%\bookmark[page=29,level=4]{Símbolos Gregos}
+%\bookmark[page=29,level=4]{Operadores Matemáticos e Convenções}
+%\bookmark[page=29,level=4]{Acrônimos e Abreviaturas}
+%\cleardoublepage
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% Espacamento entre equacoes
+\abovedisplayskip=0pt
+\belowdisplayskip=12pt
+
+\abovedisplayshortskip=-1pt
+\belowdisplayshortskip=12pt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%======================= Cabecalho e rodapé no documento
+%% L/C/R denote left/center/right header (or footer) elements %% E/O denote even/odd pages
+\pagestyle{fancy} %%%%%%%% não alterar %%%%%%%%%%%%
+\fancyhf{}
+\fancyhead[RO,RE]{\today~[\versao]}
+\fancyhead[LO]{\nouppercase{\textsf{\rightmark}}}
+\fancyhead[LE]{\nouppercase{\textsf{\leftmark}}}
+\fancyfoot[RO]{\includegraphics[height=1.2cm,page=1]{UFSC_Logo.pdf}\hfill {\rule[1.6em]{.9\linewidth}{.1pt}}}
+\fancyfoot[LE]{{\rule[1.6em]{.9\linewidth}{.1pt}}\hfill \includegraphics[height=1.2cm]{UFSC_Logo.pdf}}
+\fancyfoot[CO,CE]{\thepage}
+%COMENTÀRIOS
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%=======================================================================
+% Inclusão dos capítulos
+%=======================================================================
+% Capítulos são numerados normalmente
+\pagenumbering{arabic}
+
+\linespread{1.05}\selectfont    % Pequena folga para que equacoes no texto apareçam melhor
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Capitulos
+\clearpage
+
+\input{secs/intro}
+% \input{secs/objetivo}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+% \input{secs/teoria}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \input{secs/projeto}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \input{secs/resultados_experimentais}
+% \pagebreak %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \input{secs/analise_subjetiva}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \input{secs/conclusoes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Pós-Textuais
+
+%%%%%%%%%%%%%%%% Ref. Bibliograficas
+\input{secs/bibliografia_final}
+%%%%%%%%%%%%%%%% Apendice:
+% \input{secs/apendices}
+% %%%%%%%%%%%%%%%% Anexos:
+\input{secs/anexos}
+
+
+%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%% Índice remissivo
+% \cleardoublepage 
+% \phantomsection \label{idx.indice}
+% \setcounter{chapter}{0}
+% %\renewcommand\indexname{Alphabetical Index}              % ENG
+%          %\addcontentsline{toc}{part}{Alphabetical Index} % ENG
+% \renewcommand\indexname{Índice Remissivo}                 % BR
+%          \addcontentsline{toc}{part}{Índice Remissivo}    % BR
+%          \printindex 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%				
+% Pagina em branco
+%\blankpage
+%\newpage \thispagestyle{empty}
+%\color{white}{.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

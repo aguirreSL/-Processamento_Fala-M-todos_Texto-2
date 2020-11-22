@@ -1,0 +1,37 @@
+Executable path:
+
+C:\Program Files (x86)\SumatraPDF\SumatraPDF.exe -inverse-search "\"C:\Program Files (x86)\TeXnicCenter Alpha\TeXnicCenter.exe\" /ddecmd \"[goto('%f','%l')]'\""
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+View project's output:
+
+Command:
+[Open("%bm.pdf",0,1,1)][ForwardSearch("%bm.pdf","%Wc",%l,0,0,1)]
+
+Server: 
+sumatra
+
+Topic:
+control
+
+X DDE command
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Forward search:
+
+Command:
+[ForwardSearch("%bm.pdf","%Wc",%l,0,0,1)]
+
+Server: 
+sumatra
+
+Topic:
+control
+
+X DDE command
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+X Do not close

@@ -1,0 +1,44 @@
+%%% indexstyle.ist -- MakeIndex style file by Regis All rights reserveds
+%%% http://latexbr.blogspot.com.br/
+
+%%% Coloca cada letra entre grupos no início da linha
+heading_prefix "{\\bfseries "     % Insert in front of letter
+heading_suffix "\\hfill}\\nopagebreak\n" % Append after letter
+headings_flag  1                  % Turn on headings (uppercase)
+
+%%% Traduz ``Symbols'' e ``Numbers'' para Portugues.
+% Heading for symbols to be inserted if headings_flag is positive.
+symhead_positive "Symbols";
+symhead_negative "Symbols";
+numhead_positive "Numbers";
+numhead_negative "Numbers";
+
+%%% indexstyle.ist ends here.
+
+delim_0 "\\dotfill"
+delim_1 "\\dotfill"
+delim_2 "\\dotfill"
+
+
+
+% sample.ist
+% Usage
+%     makeindex -s sample.ist foo.aux
+%preamble "
+%\\begin{theindex}
+  %\\providecommand*\\indexgroup[1]{\\indexspace
+    %\\item \\textbf{#1}\\nopagebreak}
+%"
+%
+%postamble "\n\n\\end{theindex}\n"
+%
+%group_skip "  %\n  \\indexspace\n  %\n"
+%
+%headings_flag 1
+%heading_prefix "  %\n  \\indexgroup{"
+%heading_suffix "}\n  %\n"
+%
+%numhead_positive "Numbers";
+%numhead_negative "Numbers";
+%symhead_positive "Symbols";
+%symhead_negative "Symbols";

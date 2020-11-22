@@ -1,0 +1,503 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Template para relatório, trabalho, manual, artigo, tcc, dissertação ou tese
+%%% Release 13/11/2014
+%%%	Por Prof. William D. Fonseca
+%%% will.fonseca@eac.ufsm.br
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%======================= Classe
+%%% Não mexer neste parte %%%%%%%
+%\documentclass[a4paper,12pt]{article}
+%\documentclass[a4paper,12pt]{scrreprt} 
+%\documentclass[a4paper,12pt,twoside]{report}
+\documentclass[a4paper,12pt,twoside,openright]{scrreprt}
+% Aqui classe especifica o tipo de documento a ser criado.
+% Gerar o documento como um report com a fonte base de onze pontos,usando papel A4.
+% {report} Para relatórios maiores contendo diversos capítulos, pequenos livros, teses de doutorado,...
+% [twoside] paginas impares e pares
+
+%%%%%% Watermark %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{draftwatermark}
+%\SetWatermarkText{Confidencial}
+%\SetWatermarkText{\includegraphics[width=1\linewidth]{water.pdf}}
+%\SetWatermarkColor[gray]{0.92}
+%\SetWatermarkScale{0.7}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Check if the compilation is a PDF
+\usepackage{ifpdf}    
+%% To enable copy/paste from pdftex-generated PDF,
+\ifpdf
+\input{glyphtounicode}
+\pdfgentounicode=1\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{scrhack}
+% Ative caso use ``scrreprt'', este pacote evita conlfito com o hyperref
+
+% Ajustando magerns para padrao % for easy management of document margins
+\usepackage[a4paper,left=2.5cm,right=2.0cm,top=2.8cm,bottom=2.4cm]{geometry}
+
+\usepackage{chngpage} % to easily change the margins of pages.
+											% Caso precise folhas com margens especiais
+\usepackage{pdflscape} % Use landscape pages	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%======================= Entrada e Fontes
+%\usepackage{ucs} % Provides advanced support for using UTF-8 as the input encoding of LaTeX files.
+
+% Para configurar a codificação do arquivo de entrada permite usar os caracteres acentuadas.
+\usepackage[utf8]{inputenc} % please do not change! 
+
+%\usepackage[ansinew]{inputenc} 
+% Ansinew and cp1252 (they are synonyms) for Windows 3.1 ANSI (an MS extension of ISO Latin-1)
+% In Emacs cp1252 is an alias of windows-1252
+
+% Para configurar a codificação do arquivo de entrada. 
+% Permite o uso em plataformas Windows, Linux, Unix e Mac, porém não é possível escrever acentos, e.g. áéó.
+%\usepackage[utf8]{inputenc} 
+%\inputencoding{latin1} % To switch to Latin 1
+
+\usepackage[english,brazilian]{babel} % The multilingual package. 
+% O pacote babel especifica a linguagem/dialeto utilizada. O último torna-se o padrão
+% Ele acerta a hifenizacao e titulo/nome que ele coloca automaticamente.
+
+\usepackage[T1]{fontenc} 
+\usepackage{textcomp}
+
+\usepackage{fourier-orns}
+\usepackage{lmodern}
+
+\usepackage{setspace} % \sin­glespac­ing, \one­half­s­pac­ing, and \dou­blespac­ing com­mands
+\usepackage{lipsum} %% Create dummy text 
+%%% Habilita Palatino %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[sc]{mathpazo}
+%\usepackage{tgpagella}
+%%% Habilita similar a Times New Roman %%%%%%%%%%%%%%%%%%%
+%\usepackage{mathptmx} % http://ctan.org/pkg/mathptmx
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%======================= Espaco adicional no listofigures
+\makeatletter
+\renewcommand*\l@figure{\@dottedtocline{1}{1.5em}{2.9em}}
+\makeatother
+%The length 1.5em is the space from the left margin to every line in the list of figures, whereas 2.3em is the space reserved for the number of every figure. 
+%It seems that you need to increase this length. Put in the preamble of your document something like:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%======================= Matematica
+\usepackage{amsmath, amssymb, amsfonts, xparse}
+% amsmath carrega diversos pacotes do AMS para incrementar o ambiente matematico.
+% Os pacotes amssymb e amsmath sao mais usados
+% amssymb Carrega diversos simbolos matematicos adicionais. 
+% Este pacote carrega automaticamente o amsfonts 
+
+\usepackage{amsthm}
+%The amsthm package provides an enhanced version of LATEX's \newtheorem command
+%for defining theorem-like environments.
+
+\usepackage{array}
+\usepackage{subeqnarray}
+% Como visto anteriormente,cada equação recebe uma diferente referência.Porém,se o
+% usuário desejar usar a mesma referência para todas as equações é só utilizar o pacote chamado
+% subeqnarray. That the individual lines are numbered like 1a, 1b, 1c, etc.
+% Isto é: coloca numeracao 3.7a , 3.7b , etc ....nas equacoes, usar \slabel (ex: \slabel{sub2}a&=&b-5)
+
+\usepackage{chemarrow} %Seta em cima da seta
+
+\usepackage{mathrsfs}
+% Support use of the Raph Smith's Formal Script  font in mathematics. Provides a \mathscr command, rather than overwriting the standard \mathcal command, as in calrsfs.
+\usepackage{bigints,nicefrac} 
+
+\usepackage{etoolbox} %%% Correct sub-equation
+\patchcmd{\subequations}{\def\theequation{\theparentequation\alph{equation}}}%
+{\def\theequation{\theparentequation.\arabic{equation}}}{}{}	
+% More math fonts
+\usepackage{upgreek} \usepackage{dsfont} %\usepackage{latexsym}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%======================= Imagens 
+\usepackage{graphicx,wrapfig}
+% Pacote padrão para incluir figuras, usando comando \includegraphics[]{}.
+\usepackage{animate} % Para compilar animações
+
+% Figuras.pdf Se opacote graphicx for usado como opcional[pdftex]fica possível inserir
+% figuras no formato *.pdf,neste caso o documento não poderá ser compilado como latex e
+% sim como pdfatex. Deve-se conferir se seu sistema oferece este recurso.
+% Ex: \usepackage[pdftex]{graphicx}
+% ver apostila_latex.pdf Figuras.jpg,.png,.pdf 
+
+\usepackage[absolute]{textpos}
+\usepackage[format=plain,justification=centerlast,margin=4pt]{caption} %para fazer captionof
+\captionsetup[table]{font=normalsize,skip=10pt}
+\captionsetup[quadro]{font=normalsize,skip=8pt}
+\captionsetup[figure]{font=normalsize,skip=8pt}
+\captionsetup{belowskip=2pt,aboveskip=4pt}
+
+%\setlength{\captionmargin}{10pt}
+
+%%%These package defines the environment sidewaystable, it must be loaded after the graphicx package
+\usepackage{rotating}   % Package for rotating things
+\usepackage{calc} 			% ? precisa para o newenvironment{onde}, junto com o amsmath
+% calc, pacote para efetuar cálculo aritmético, útil para calcular comprimento e valores de contadores.
+% ex: altura de letra, comprimento de palavra
+%\setcounter{x}{7/2}
+%\setcounter{y}{3*\real{1.6}}
+%\setcounter{z}{3*\real{1.7}}
+%will assign the value 3 to the counter x, the value 4 to y, and the value 5 to z.
+%This truncation also applies to intermediate results in the sequential computation
+%of a composite expression; thus, the following command
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Tabelas e Quadros
+\usepackage{array,tabularx}
+% Array: Arrays e tables (tabular) com colunas formatados
+% Tabularx: tabulars that widen automatically. 
+% Para igualar colunas desejadas do array/table, mantendo o cálculo automatico para largura.
+\usepackage{multirow}
+%%%% Cria o tipo de objeto quadro
+\usepackage{newfloat} 
+\DeclareFloatingEnvironment[
+    fileext=loq,
+    listname={Lista de Quadros},
+    name=Quadro,
+    placement={H},
+    within=chapter,
+]{quadro}
+\renewcommand{\listofquadros}{\listof{quadro}{\listquadroname}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%======================= Texto
+\usepackage{color}         											% para letras e caixas coloridas
+\usepackage[usenames,dvipsnames]{xcolor}        % para letras e caixas coloridas possivel usar RGB, CMYK, etc
+
+\usepackage{indentfirst} 												% Indenta a primeira linha do section/chapter
+
+%\usepackage{multicol, wasysym, xspace, fancyhdr, shapepar}
+\usepackage{multicol, wasysym, xspace, fancyhdr, shapepar, float}
+
+\usepackage{subfig}
+\DeclareSubrefFormat{myparens}{#1~(#2)}
+\captionsetup[subfloat]{subrefformat=myparens,labelformat=parens,position=bottom,font={small,rm}}
+%\renewcommand{\thesubequation}{\themainequation.\alph{equation}}
+
+% To correct continued float. Use \resetsubfigs after \begin{figure} to reset the subfigure labels.
+\makeatletter
+\newcommand\resetsubfigs{\setcounter{sub\@captype}{0}}
+\makeatother
+
+% - float, Improves the interface for defining floating objects such as figures and tables.
+% - subfigure, Provides support for the manipulation and reference of small or ‘sub’ figures and tables within  % a single figure or table environment. 
+% - Multicol defines a multicols environment which typesets text in multiple columns (up to a maximum of 10), and %(by default) balances the end of each column at the end of the environment.
+% - wasysym, The WASY2 (Waldi Symbol) font by Roland Waldi provides many glyphs like male and female symbols  
+% and astronomical symbols, as well as the complete lasy font set and other odds and ends. 
+% - xspace, controla o espaço de acordo com o que segue, útil para escrever macro.
+% - fancyhdr, controle extensivo sobre cabeçalho e rodapé da página. Cabeçalho e rodapeh de forma sofisticada.
+% - shapepar is a macro to typeset paragraphs in a specific shape. Molda o texto em uma certa forma.
+% \; \, \: sao tipos de espaçamento. \! eh um espaço negativo. \quad \qquad esçamento positivo maior
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%======================= URL 
+\usepackage{url}	% With the url package (\usepackage{url}) you can enter URLs like this: \url{http://www.stack.nl/~jwk/latex/}. 
+% Chamar PDF em pagina especifica \href{MasterF.pdf#page.32}{here}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%======================= Latex
+\usepackage{makeidx}
+% para criar índice remissivo. Coloque o comando \makeindex no preamble e use \index{} para adicionar um ítem %no indice remissivo. O \printindex serve para colocar o índice remissivo no local desejado. Note que precisará %a seguinte sequência de execussão: latex, makeindex, latex, latex para criar corretamente o índice remissivo %(caso use bibtex também, a sequência será algo como latex, makeindex, bibtex, latex, latex)
+% gera indices em ordem alfabetica, 
+\makeindex % faça o makeindex
+
+\usepackage{ifthen,xifthen}
+% Provides commands of the form `if...then do... otherwise do...'. 
+% ex: se a palavra tive um comprimento maior que X, faça isso.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%======================= Cabeçalho
+\def\shortauthor#1{\def\cabei{#1}}
+\def\shorttitle#1{\def\cabeii{#1}}
+% \def nao da conflito entre arquivos multiplos
+% definicoes para rechamar informacoes. Neste caso, dados que irao aparecer no cabeçalho.
+\newcommand{\Index}[1]{#1\index{#1}} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Start PDF metadata
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{datetime} % to get automaticallly the date
+\ifpdf
+\pdfinfo
+{  /CreationDate (D:\pdfdate) %D:YYYYMMDDHHmmss
+   /ModDate (D:\pdfdate)	
+} \fi
+
+\shorttitle{ \mbox{} }
+\shortauthor{ \mbox{} }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%======================= Cite 
+\usepackage[numbers,sort&compress]{natbib}
+%The natbib package sorts the numbers and detects consecutive sequences, so creating “[2–4,6]”.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%======================= Níveis 
+\makeatletter
+\setcounter{secnumdepth}{4} %%%% para 4 níveis enumerados
+\setcounter{tocdepth}{3}    %%%% para fazer os 4 níveis aparecer no toc
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%======================= PDF functions 
+\pdfminorversion=7     % Faz com que não apareça a mensagem de warning sobre a versão do pdf quando compilado.
+\pdfimageresolution300
+\pdfcompresslevel8	   % Nivel de compressao do PDF
+
+\ifpdf\usepackage{pdfpages}\fi	 %Incluir arquivos de PDF
+
+\usepackage{lscape} 	 %Supplies a landscape environment, and anything inside is basically rotated. No actual page dimensions are changed. Using pdflscape instead of lscape when generating a PDF document will make the page appear right side up when viewed: the single page that is in landscape format will be rotated, while the rest will be left in portrait orientation.
+
+%%% Links
+\usepackage[hyperindex,pagebackref=true,pdfusetitle]{hyperref}
+
+%\hypersetup{bookmarks,colorlinks,breaklinks,plainpages=false,pdfpagelabels,linktocpage}
+\hypersetup{plainpages=false,colorlinks,breaklinks,linktocpage,hypertexnames=true,naturalnames=false}
+\hypersetup{linkcolor=red,citecolor=blue,filecolor=blue,urlcolor=blue} %Colorful
+%\hypersetup{linkcolor=black,citecolor=black,filecolor=black,urlcolor=black} %Not Colorful
+ 
+%%%%% Back references language
+%\renewcommand*{\backref}[1]{} % No back references
+%\usepackage{backrefEN} % English
+\usepackage{backrefBR} % Português
+
+% A seguinte linha evita algumas mensagens de warning por parte do hyperref.
+\pdfstringdefDisableCommands{\edef\uppercase{}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% EDIT HERE PDF INFO %% Informar titulo, autores, ...
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Trabalho rápido 1 - Classificação de sinais - Sinais não estacionários.}
+\author{Sergio Aguirre}
+
+\hypersetup{
+  pdfinfo={
+	 Subject={Processamento digital, Classificação, Não estacionários},
+   Keywords={Processamento digital, Classificação, Não estacionários}
+  }
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Nomenclature 
+\usepackage{nomecl_br_will}	  % Brazilian
+%\usepackage{nomecl_en_will} % English
+\makenomenclature  % write/run it in the configuration of your compiler every time you want to print a new nomenclature.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Mais personalizações
+%\usepackage{Will_eng}  % English
+\usepackage{Will}  		 % Brazilian
+%\input{Will.sty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% Insert source codes e.g. Latex, Matlab, Fortran, LabVIEW
+\usepackage{Codes2Latex}
+%% Pre-load languages
+\lstloadlanguages{WMatlab,WFortran,WLatex,WLabview,ttcCode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Personalizações de texto
+%%% Insira aqui um ``pacote'' de comandos de texto para facilitar a sua vida ao 
+% escrever um documento
+\usepackage{Will_tx}  		 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document} % Início do documento.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Inicia documento com numeração alpha
+\pagenumbering{alph} 
+%\setcounter{page}{-4}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Página da capa do documento
+%\maketitle % Faça 1 pagina com o titulo
+%\include{Capa}
+\input{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pagina em branco
+%\blankpage
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%=======================================================================
+% Numeração em romanos para paginas iniciais (capa, agradecimentos, etc)
+%=======================================================================
+\pagenumbering{roman} %% ou ROMAN para números romanos em maiúscula
+\setcounter{page}{1}
+
+%%%%%%%%%%%%%%%%% Cover
+%\bookmark[page=1,level=0]{Cover}							   % English
+\bookmark[page=1,level=0]{Capa}                  % Português
+
+%%%%%%%%%%%%%%%%% Table of Contents
+%\cleardoublepage
+%\phantomsection
+%\bookmark[page=3,level=0]{Table of Contents}    % English
+%\bookmark[page=3,level=0]{Sumário}               % Português
+%\renewcommand\contentsname{Table of Contents}
+%\tableofcontents
+%
+%%%%%%%%%%%%%%%%% List of Figures
+%\cleardoublepage
+%\phantomsection
+%\addcontentsline{toc}{section}{List of Figures} % English
+%\renewcommand\listfigurename{List of Figures}   % English
+%\addcontentsline{toc}{section}{Lista de Figuras} % Português
+%\renewcommand\listfigurename{Lista de Figuras}   % Português
+%\listoffigures
+%
+%%%%%%%%%%%%%%%%% List of Tables
+%\cleardoublepage
+%\phantomsection
+%\addcontentsline{toc}{section}{List of Tables}  % English
+%\renewcommand\listtablename{List of Tables}     % English
+%\addcontentsline{toc}{section}{Lista de Tabelas} % Português
+%\renewcommand\listtablename{Lista de Tabelas}    % Português
+%\listoftables
+%
+%%%%%%%%%%%%%%%% Lista de Quadros
+%\cleardoublepage
+%\phantomsection
+%\renewcommand{\listquadroname}{Lista de Quadros}
+%\addcontentsline{toc}{section}{Lista de Quadros} % Português
+%\listofquadros
+%
+%%%%%%%%%%%%%%%%% List of Codes
+%\cleardoublepage
+%\phantomsection
+%\addcontentsline{toc}{section}{List of Codes}   % English
+%\addcontentsline{toc}{section}{Lista de Códigos}  % Português
+%\listadecodigos
+%
+%%%%%%%%%%%%%%%%% Nomenclature
+%\cleardoublepage
+%\phantomsection
+%\nomenclatura{1.7cm} \label{sec.nomecl}
+%
+%\bookmark[page=29,level=4]{Símbolos Gerais}
+%\bookmark[page=29,level=4]{Símbolos Gregos}
+%\bookmark[page=29,level=4]{Operadores Matemáticos e Convenções}
+%\bookmark[page=29,level=4]{Acrônimos e Abreviaturas}
+%\cleardoublepage
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% Espacamento entre equacoes
+\abovedisplayskip=0pt
+\belowdisplayskip=12pt
+
+\abovedisplayshortskip=-1pt
+\belowdisplayshortskip=12pt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%======================= Cabecalho e rodapé no documento
+%% L/C/R denote left/center/right header (or footer) elements %% E/O denote even/odd pages
+\pagestyle{fancy} %%%%%%%% não alterar %%%%%%%%%%%%
+\fancyhf{}
+\fancyhead[RO,RE]{\thepage}
+\fancyhead[LO]{\nouppercase{\textsf{\rightmark}}}
+\fancyhead[LE]{\nouppercase{\textsf{\leftmark}}}
+\fancyfoot[RO]{\includegraphics[height=1.2cm,page=1]{LogosUFSM.pdf}\hfill {\rule[1.6em]{.9\linewidth}{.1pt}}}
+\fancyfoot[LE]{{\rule[1.6em]{.9\linewidth}{.1pt}}\hfill \includegraphics[height=1.2cm,page=1]{LogosUFSM.pdf}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%=======================================================================
+% Inclusão dos capítulos
+%=======================================================================
+% Capítulos são numerados normalmente
+\pagenumbering{arabic}
+
+\linespread{1.05}\selectfont    % Pequena folga para que equacoes no texto apareçam melhor
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Capitulos
+
+%\input{Cap1}
+
+\chapter{Introdução}
+\section{Sinais}
+\section{Classificação de sinais}
+
+\chapter{Desenvolvimento}
+\section{Sinais Aleatórios não estacionários}
+
+
+
+\chapter{Considerações}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Pós-Textuais
+
+%%%%%%%%%%%%%%%% Ref. Bibliograficas
+\cleardoublepage
+\phantomsection \settocdepth{section}
+\addcontentsline{toc}{chapter}{Referências Bibliográficas} \label{chap.refs} % Português
+%\addcontentsline{toc}{part}{References} \label{chap.refs}                   % English
+\renewcommand{\bibname}{Referências Bibliográficas} 
+\renewcommand{\refname}{\bibname} 
+
+% Estilos
+%\bibliographystyle{plain}
+%\bibliographystyle{abbrv}
+%\bibliographystyle{ama}
+%\bibliographystyle{unsrt}
+%\bibliographystyle{ieeetr}
+
+%\bibliographystyle{unsrtnat}
+%\bibliographystyle{plainnat}
+\bibliographystyle{abbrvnat}
+
+\bibliography{bibliografia,Books} % Arquivo com sua database
+%\bibliography{bibliografia} % Arquivo com sua database
+
+%%%%%%%%%%%%%%%% Apendice:
+\cleardoublepage
+\phantomsection \appendix
+
+%\part{Appendix}
+%\addcontentsline{toc}{part}{Appendix}
+%\mbox{}
+
+\addcontentsline{toc}{chapter}{Apêndices}
+\part{Apêndices}
+\cleardoublepage
+
+%\input{Codificacao}
+
+%%%%%%%%%%%%%%%% Anexos:
+%\cleardoublepage
+%\phantomsection \appendix \setcounter{chapter}{0}
+%
+%\renewcommand{\theHchapter}{an.\Alph{chapter}}
+%\renewcommand{\appendixname}{Anexos} 
+%\addcontentsline{toc}{chapter}{Anexos}
+%\part{Anexos}
+%
+%%\renewcommand{\appendixname}{Annex} 
+%%\addcontentsline{toc}{part}{Annex}
+%%\part{Annex}
+%
+%\mbox{}
+%\input{}
+%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% Índice remissivo
+\cleardoublepage 
+\phantomsection \label{idx.indice}
+\setcounter{chapter}{0}
+%\renewcommand\indexname{Alphabetical Index}              % ENG
+         %\addcontentsline{toc}{part}{Alphabetical Index} % ENG
+\renewcommand\indexname{Índice Remissivo}                 % BR
+         \addcontentsline{toc}{part}{Índice Remissivo}    % BR
+         \printindex 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%				
+% Pagina em branco
+%\blankpage
+%\newpage \thispagestyle{empty}
+%\color{white}{.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,423 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Custom commands Will Fonseca
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Comandos para o texto
+%% Aliases
+\newcommand{\dg}{{\ensuremath{^\circ}}\xspace}  
+\newcommand{\bfit}[1]{\textbf{\textit{#1}}}
+\newcommand\onde{\noindent onde\ }
+
+\DeclareRobustCommand{\eg}{e.g.\@\xspace}
+\DeclareRobustCommand{\ie}{i.e.\@\xspace}
+
+\makeatletter
+\DeclareRobustCommand{\etc}{%
+    \@ifnextchar{.}%
+        {etc}%
+        {etc.\@\xspace}%
+}
+\DeclareRobustCommand{\etal}{%
+    \@ifnextchar{.}%
+        {{et~al}}%
+        {{et~al.}\@\xspace}%
+}
+\makeatother
+%%%%%%%%%%%%%% Comandos para troca de línguas
+\newcommand*{\txEN}[1]{%
+  \foreignlanguage{english}{#1}%
+}
+
+\newcommand*{\txBR}[1]{%
+  \foreignlanguage{brazilian}{#1}%
+}
+
+\newcommand{\txtEN}{\selectlanguage{english}} 
+\newcommand{\txtBR}{\selectlanguage{brazilian}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Color codes for each document type
+\definecolor{grad}{RGB}{102,153,255}
+\definecolor{pos}{RGB}{22,71,135}
+\definecolor{report}{RGB}{89,157,124}
+\definecolor{manual}{RGB}{254,204,0}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Evita ocupar a pagina toda se uma figura for para a outra pagina
+\raggedbottom
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Edita Bookmarks no texto
+\usepackage{bookmark}
+\newcommand{\Conv}{\mathop{\scalebox{1.5}{\raisebox{-0.2ex}{$\ast$}}}}%
+%e.g. \bookmark[page=1,level=0]{Title Page}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Referenciar figuras:
+\newcommand{\figura}[1]{Figura~\ref{#1}} %\figura{g1}  --> Figura X 
+\newcommand{\Figura}[1]{Figura~\ref{#1}}
+\newcommand{\figuras}[1]{Figuras~\ref{#1}}
+\newcommand{\Figuras}[1]{Figuras~\ref{#1}}
+\newcommand{\fign}[1]{\ref{#1}} 
+\newcommand{\Fig}[1]{Fig.~\ref{#1}}
+\newcommand{\subfigura}[1]{Figura~\subref*{#1}\xspace} %\subfigura{g1}  --> Figura X (a)
+\newcommand{\subfiguras}[1]{Figuras~\subref*{#1}\xspace}
+\newcommand{\sfign}[1]{\subref*{#1}\xspace}
+%END: Referenciar figuras.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Referenciar tabelas:
+\newcommand{\tabela}[1]{Tabela~\ref{#1}}
+\newcommand{\Tabela}[1]{Tabela~\ref{#1}}
+\newcommand{\tabelas}[1]{Tabelas~\ref{#1}}
+\newcommand{\Tabelas}[1]{Tabelas~\ref{#1}}
+\newcommand{\tabn}[1]{\ref{#1}\xspace}
+\newcommand{\Tab}[1]{Tab.~\ref{#1}}
+%END: Referenciar tabelas.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Referenciar quadros:
+\newcommand{\quadr}[1]{Quadro~\ref{#1}}
+\newcommand{\Quadro}[1]{Quadro~\ref{#1}}
+\newcommand{\quadros}[1]{Quadros~\ref{#1}}
+\newcommand{\Quadros}[1]{Quadros~\ref{#1}}
+\newcommand{\quadn}[1]{\ref{#1}\xspace}
+%END: Referenciar quadros.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Referenciar equações:
+\newcommand{\equacao}[1]{Equação~\eqref{#1}}
+\newcommand{\Equacao}[1]{Equação~\eqref{#1}}
+\newcommand{\equacoes}[1]{Equações~\eqref{#1}}
+\newcommand{\Equacoes}[1]{Equações~\eqref{#1}}
+\newcommand{\eqn}[1]{\eqref{#1}}
+\newcommand{\eq}[1]{eq.~\eqref{#1}}
+\newcommand{\Eq}[1]{Eq.~\eqref{#1}}
+%END: Referenciar equações.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Referenciar seção:
+\newcommand{\secao}[1]{Seção~\ref{#1}}
+\newcommand{\Secao}[1]{Seção~\ref{#1}}
+\newcommand{\secoes}[1]{Seções~\ref{#1}}
+\newcommand{\Secoes}[1]{Seções~\ref{#1}}
+\newcommand{\secn}[1]{\ref{#1}} 
+%END: Referenciar seção.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Referenciar item:
+\newcommand{\itemref}[1]{item~\ref{#1}}
+\newcommand{\itens}[1]{itens~\ref{#1}}
+\newcommand{\Item}[1]{Item~\ref{#1}}
+\newcommand{\Itens}[1]{Itens~\ref{#1}}
+%END: Referenciar item.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Declarar capítulos
+\newcommand{\capitulo}[1]{Capítulo~\ref{#1}\xspace}
+\newcommand{\capitulos}[1]{Capítulos~\ref{#1}\xspace}
+\newcommand{\capn}[1]{\ref{#1}\xspace}
+\newcommand{\apendice}[1]{Apêndice~\ref{#1}\xspace}
+\newcommand{\anexo}[1]{Anexo~\ref{#1}\xspace}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Declarar páginas
+\newcommand{\pagina}[1]{página~\pageref{#1}\xspace}
+\newcommand{\paginas}[1]{páginas~\pageref{#1}\xspace}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Math
+\DeclareMathOperator{\ji}{j\!}
+\DeclareMathOperator{\dt}{d\!}
+\DeclareMathOperator{\e}{e}
+
+\newcommand{\dif}{\mathrm{d} } 		% Comando o operador diferencial `d'
+\newcommand{\ex}{\mathrm{e} }			% Comando para a função exp
+\renewcommand{\Re}{\mbox{Re}}
+\renewcommand{\Im}{\mbox{Im}}
+\newcommand{\sen}{\operatorname{sen}} %\sen \thau   --> sen thau
+\newcommand{\senh}{\operatorname{senh}}
+\newcommand{\hada}{\operatorname{HAD}}
+\newcommand{\F}{\mathscr{F}} % F de Fourier
+\newcommand{\dotfr}{\raisebox{+0.5ex}{\; .}}
+
+%%% Subequation options
+\makeatletter
+\newcommand{\globallabel}[1]{%
+  \protected@edef\@currentlabel{\theparentequation.1--\arabic{equation}}\label{#1}%
+}
+\makeatother
+
+%% Vector options
+\usepackage[b]{esvect} %% A bunch o several different options
+\makeatletter
+\renewcommand\vvstar[2]{\vv{#1}_{\textnormal{#2}}}
+\makeatother
+
+ % Vetores como boldface e itálico \vecbi{A} ou \vecbi{A}{s}
+\NewDocumentCommand{\vecbi}{mg}{
+  \boldsymbol{#1}\IfValueT{#2}{_{\text{#2}}}%
+}
+
+\newcommand{\vecb}[1]{\mathbf{#1}}					 % Vetores como boldface
+\newcommand{\vecl}[1]{\overrightarrow{#1}}	 % Vetores como flexa longa
+
+%Ex: \vec{casa} \quad \vecl{casa} \quad \vv{casa} \vv*{e}{r} \vecb{casa} \vecbi{casa}
+\newcommand{\vvc}[1]{{\ensuremath{\protect\vv{#1}}}\xspace } % protected vector
+%END: Math
+%%%%%%%%%%%%% Deflist
+\newenvironment{deflist}%[1]
+{\begin{list}
+{}{
+\setlength\itemsep{.0mm}
+\renewcommand{\makelabel}[1]{\hfill\text{##1} :}%
+\settowidth{\labelwidth}{\text{onde}\hspace{0.2ex}:}%{\text{#1}\hspace{1ex}:}%
+\setlength{\leftmargin}{\labelwidth+\labelsep}}\item[onde]}%
+{\end{list}}
+% renova a explicação da lista de variaveis de uma expressao matematica.
+
+%%%%%%%%%%%%% Anotações na margem, escreva \marginlabel{bla bla}
+\newcommand{\marginlabel}[1]{\mbox{}\marginpar{\raggedleft\hspace{0pt}#1}}
+
+%%%%%%%%%%%%% Pagina em branco
+\newcommand{\blankpage}{\newpage\thispagestyle{empty}\mbox{}}
+
+%%%%%%%%%%%%% Comandos para superscript e subscript, escreva \sub{T,i}
+\newcommand{\sub}[1]{\raisebox{-0.5ex}{\scriptsize #1}}
+%\newcommand{\super}[1]{\raisebox{0.7ex}{\scriptsize #1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bline}{\vspace{\baselineskip}}
+
+%%%%%%%%%%%%%% Escrever texto dentro das equacoes
+\newcommand{\tx}[1]{\text{#1}}								 % Uso \tx{}
+\newcommand{\txu}[1]{\ensuremath{_{\text{#1}}}}% Uso \txu{}	
+\newcommand{\txf}[1]{\mbox{\footnotesize #1}}	 % Uso \tbx{}
+\newcommand{\txs}[1]{\text{\scriptsize #1}}		 % Uso \txs{}
+\newcommand{\txy}[1]{\text{\tiny #1}}		       % Uso \txy{}
+
+%%%%%%%%%%%%%% Deixar unidades sempre com os valores
+\usepackage{units}
+%e.g. \unit[100]{Hz}
+
+%%%%%%%%%%%%%% Extra
+%\usepackage{pdfsync}	% Provide links between source and PDF.
+\usepackage{slantsc} % Enables the use of small capitals in different font shapes
+
+%%%%%%%%%%%%%% Total number of pages
+\usepackage{lastpage} % used for total number of pages
+%\usepackage{epstopdf} % converts eps-figures to pdf automatically for use with pdflatex
+
+%%%%%%%%%%%%%% Fracoes no texto
+\usepackage{xfrac}
+%e.g. \sfrac{numerator}{denominator}
+
+%%%%%%%%%%%%%% Opcoes avancadas no enumerate
+\usepackage{enumerate}
+
+%%%%%%%%%%%%%% Para colocar pequenas teclas desenhadas do teclado
+% Uso
+% \keystroke{$\rightarrow$}
+\usepackage{tikz}
+\usetikzlibrary{shadows}
+
+\newcommand*\keystroke[1]{%
+  \tikz[baseline=-4pt]
+    \node[%
+      draw,
+      fill=white,
+      drop shadow={shadow xshift=0.2ex,shadow yshift=-0.2ex,fill=black,opacity=0.75},
+      rectangle,
+      rounded corners=2pt,
+      inner sep=1pt,
+      line width=0.5pt,
+      font=\scriptsize\sffamily
+    ](key) {#1\strut}
+  ;
+}
+
+\usepackage{soul}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathmorphing}
+
+\makeatletter
+%% http://tex.stackexchange.com/questions/203299/draw-tikz-highlighting-on-the-background-of-text
+\newcommand{\defhighlighter}[3][]{%
+  \tikzset{every highlighter/.style={color=#2, fill opacity=#3, #1}}%
+}
+
+\def\highlightcolor{yellow}
+\defhighlighter{\highlightcolor}{.5}
+
+\newcommand{\highlight@DoHighlight}{
+  \fill [ decoration = {random steps, amplitude=1pt, segment length=15pt}
+        , outer sep = -15pt, inner sep = 0pt, decorate
+        , every highlighter, this highlighter ]
+        ($(begin highlight)+(0,8pt)$) rectangle ($(end highlight)+(0,-3pt)$) ;
+}
+
+\newcommand{\highlight@BeginHighlight}{
+  \coordinate (begin highlight) at (0,0) ;
+}
+
+\newcommand{\highlight@EndHighlight}{
+  \coordinate (end highlight) at (0,0) ;
+}
+
+\newdimen\highlight@previous
+\newdimen\highlight@current
+
+\DeclareRobustCommand*\highlight[1][]{%
+  \tikzset{this highlighter/.style={#1}}%
+  \SOUL@setup
+  %
+  \def\SOUL@preamble{%
+    \begin{tikzpicture}[overlay, remember picture]
+      \highlight@BeginHighlight
+      \highlight@EndHighlight
+    \end{tikzpicture}%
+  }%
+  %
+  \def\SOUL@postamble{%
+    \begin{tikzpicture}[overlay, remember picture]
+      \highlight@EndHighlight
+      \highlight@DoHighlight
+    \end{tikzpicture}%
+  }%
+  %
+  \def\SOUL@everyhyphen{%
+    \discretionary{%
+      \SOUL@setkern\SOUL@hyphkern
+      \SOUL@sethyphenchar
+      \tikz[overlay, remember picture] \highlight@EndHighlight ;%
+    }{%
+    }{%
+      \SOUL@setkern\SOUL@charkern
+    }%
+  }%
+  %
+  \def\SOUL@everyexhyphen##1{%
+    \SOUL@setkern\SOUL@hyphkern
+    \hbox{##1}%
+    \discretionary{%
+      \tikz[overlay, remember picture] \highlight@EndHighlight ;%
+    }{%
+    }{%
+      \SOUL@setkern\SOUL@charkern
+    }%
+  }%
+  %
+  \def\SOUL@everysyllable{%
+    \begin{tikzpicture}[overlay, remember picture]
+      \path let \p0 = (begin highlight), \p1 = (0,0) in \pgfextra
+        \global\highlight@previous=\y0
+        \global\highlight@current =\y1
+      \endpgfextra (0,0) ;
+      \ifdim\highlight@current < \highlight@previous
+        \highlight@DoHighlight
+        \highlight@BeginHighlight
+      \fi
+    \end{tikzpicture}%
+    \the\SOUL@syllable
+    \tikz[overlay, remember picture] \highlight@EndHighlight ;%
+  }%
+  \SOUL@
+}
+\makeatother
+
+\newsavebox\tmpbox
+\usepackage{tabto}
+\newcommand\Ohighlight[2][]{%
+  \tabto*{0in}\edef\tmpx{\TabPrevPos}\tabto*{\tmpx}%
+  \savebox\tmpbox{%
+  \begin{minipage}[b]{\textwidth}
+    \tabto*{\tmpx}#2\strut%
+  \end{minipage}}%
+  {\color{\highlightcolor!0}\highlight[#1]{#2}}%
+  \vspace*{\dimexpr-\dp\tmpbox-\ht\tmpbox+\dp\strutbox}%
+  \tabto*{\tmpx}#2\unskip\ %
+}
+
+\newcommand{\hll}[1]{
+{\Ohighlight[yellow,fill opacity=1]{#1}}}
+
+\newcommand{\hlc}[2][yellow]{ {\sethlcolor{#1} \hl{#2}} }
+% Exemplo \hlc[green]{Text goes here.}
+
+%%%%%%%%%%%%%% Raiz quadrada com ``fechamento''
+% Uso:
+% \sqrt{1982} ou \oldsqrt{1982}
+
+% New definition of square root:
+% it renames \sqrt as \oldsqrt
+\let\oldsqrt\sqrt
+% it defines the new \sqrt in terms of the old one
+\def\sqrt{\mathpalette\DHLhksqrt}
+\def\DHLhksqrt#1#2{%
+\setbox0=\hbox{$#1\oldsqrt{#2\,}$}\dimen0=\ht0
+\advance\dimen0-0.2\ht0
+\setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
+{\box0\lower0.4pt\box2}}
+
+%%%%%%%%%%%%%% Novo Contador em ambiente
+\newcounter{myenum}
+\newenvironment{myenumerate}{\setcounter{myenum}{1}\def\item{\par{\bf
+      \arabic{myenum}.\ }\stepcounter{myenum}}}{\newline}
+			
+%%%%%%%%%%%%%% Matrices with alignment
+%http://texblog.net/latex-archive/maths/matrix-align-left-right/
+%e.g. \begin{pmatrix}[r]  or \begin{pmatrix}[c] 
+
+\makeatletter
+\renewcommand*\env@matrix[1][c]{\hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{*\c@MaxMatrixCols #1}}
+\makeatother
+
+%%%%%%%%%%%%%% Footnote
+%\interfootnotelinepenalty=10000 %If the text within the footnote is very long, LaTeX may split the footnote over several pages.
+
+%%%%%%%%%%%%%% Starting chapter without a pagebreak
+%To prevent the page breaks before new chapters, one possibility is to redefine chapter without \clearpage or \cleardoublepage, let's use \par instead:
+%http://www.latex-community.org/forum/viewtopic.php?f=5&t=2521
+
+\makeatletter
+\renewcommand\chapter{\par%
+  \thispagestyle{plain}%
+  \global\@topnum\z@
+  \@afterindentfalse
+  \secdef\@chapter\@schapter}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Table Stuff
+% For nice tables
+\RequirePackage{booktabs}
+% Color in the tables
+\RequirePackage{colortbl}
+% Footnote in tables
+\usepackage{threeparttable}
+% http://www.latex-community.org/viewtopic.php?f=5&t=929
+
+\newcommand{\ratb}[1]{\renewcommand{\arraystretch}{#1}}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+%http://tex.stackexchange.com/questions/12703/fixed-width-column-with-text-centered-in-tabular
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\newcolumntype{V}{>{\centering\arraybackslash} m{.4\linewidth} }
+\newcolumntype{A}[2]{%
+    >{\minipage{\dimexpr#1\linewidth-2\tabcolsep-#2\arrayrulewidth\relax}\vspace\tabcolsep}%
+    c<{\vspace\tabcolsep\endminipage}}
+
+\newcommand{\SetRowColor}[1]{\noalign{\gdef\RowColorName{#1}}\rowcolor{\RowColorName}}
+\newcommand{\mymulticolumn}[3]{\multicolumn{#1}{>{\columncolor{\RowColorName}}#2}{#3}}
+
+% Frame border color 
+\definecolor{framecolor}{RGB}{226,215,255}	
+% Colors for tables
+\definecolor{toptb}{RGB}{221,239,255}
+\definecolor{lighttb}{RGB}{255,247,221}
+\definecolor{lightlinetb}{RGB}{208,239,255}
+\definecolor{purple}{RGB}{112,48,160}
+\definecolor{gold}{RGB}{255,192,0}
+\definecolor{LightGreen}{RGB}{235,255,251}
+\definecolor{LightRed}{RGB}{255,237,237}
+\definecolor{LightOrange}{RGB}{255,250,237}
+\definecolor{LightOrange2}{RGB}{255,235,193}
+\definecolor{Green02}{rgb}{0,0.5,0}
+\definecolor{Orange02}{rgb}{1,0.6,0.2}
+\definecolor{LightBlue}{RGB}{212,237,255}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tocvsec2}
